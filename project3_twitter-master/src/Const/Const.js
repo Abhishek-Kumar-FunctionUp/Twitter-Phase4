@@ -236,3 +236,41 @@ export const postData = [
         ],
         },
     ]
+
+export const data =  [
+    {
+      id:0,
+    name:"Sport-Trending",
+    trends:"#AlNassr",
+    Link:"Trending with #PSGRCSA",
+    isNotInterested:true,
+  },
+    {
+      id:1,
+    name:"Trending in india",
+    trends:"#Bts",
+    Link:"33.k tweets",
+    isNotInterested:false,
+  },
+    {
+      id:2,
+    name:"Trending in india",
+    trends:"#BCCI",
+    Link:"11.2k tweets",
+    isNotInterested:false,
+  },
+    {
+      id:3,
+    name:"indian Premier league",
+    trends:"#Ishan Kishan",
+    Link:"23k tweets ",
+    isNotInterested:false,
+  },
+  {
+    id:4,
+  name:"indian Premier league",
+  trends:"#Virat Kohli",
+  Link:"23k tweets ",
+  isNotInterested:false,
+},
+]

@@ -2,51 +2,25 @@ import React, { useEffect, useState } from 'react'
 import style from './RightSideCard.module.css'
 import TrendOption from '../TrendOption/TrendOption'
 import RightSideTrendOption from '../RightSideTrendOption/RightSideTrendOption'
-
+import {data} from "../../Const/Const"
 
 function RightSideCard() {
- const [newData, setNewData]=useState([])
-  const [data ,setData] =useState(
+ const [newData, setNewData]=useState(data.slice(2))
+ const [isShowingAllTrendings , setIsShowingAllTrendings] = useState(false)
 
-     [
-      {
-        id:0,
-      name:"Sport-Trending",
-      trends:"#AlNassr",
-      Link:"Trending with #PSGRCSA",
-      isNotInterested:true,
-    },
-      {
-        id:1,
-      name:"Trending in india",
-      trends:"#Bts",
-      Link:"33.k tweets",
-      isNotInterested:false,
-    },
-      {
-        id:2,
-      name:"Trending in india",
-      trends:"#BCCI",
-      Link:"11.2k tweets",
-      isNotInterested:false,
-    },
-      {
-        id:3,
-      name:"indian Premier league",
-      trends:"#Ishan Kishan",
-      Link:"23k tweets ",
-      isNotInterested:false,
-    },
-  
-  ]
-  )
   //  console.table(data)
   // localStorage.setItem("trendData",JSON.stringify(data)) 
-
+  function handleRequestSeeAll () {
+    setIsShowingAllTrendings(!isShowingAllTrendings)
+    if(isShowingAllTrendings) {
+       return setNewData(data.slice(0,2))
+    }
+    setNewData(data)
+}
 
    const removeData=(id)=>{
 
-    setData((data)=>data.filter((trend)=>trend.id !==id))
+    setNewData((data)=>data.filter((trend)=>trend.id !==id))
     localStorage.setItem("trendData",JSON.stringify(data)) 
 
   }
@@ -63,7 +37,7 @@ useEffect(()=>{
 
   return (
     <div className={style.container}>
-       <h2>What's happening.. ??</h2>
+       <h2>What's happening </h2>
       {
         newData?.map((elem, id) =>
         <> 
@@ -83,7 +57,14 @@ useEffect(()=>{
         </>
         )
       }
-   
+            { 
+                data.length && 
+                <p className={style.seeAll} 
+                    onClick = {handleRequestSeeAll}
+                >
+                    {isShowingAllTrendings ? 'Show Less' : 'Show More'} 
+                </p>
+            }
     </div>
   )
 }

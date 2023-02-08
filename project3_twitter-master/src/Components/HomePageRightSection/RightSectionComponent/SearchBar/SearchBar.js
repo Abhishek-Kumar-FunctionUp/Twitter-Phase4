@@ -17,7 +17,6 @@ export default function SearchBar() {
            <span className={style.icon1}><BsSearch/></span>
             <input   placeholder="Search Twitter" className={style.Input} {...bindTrigger(popupState)}>
           </input>
-          <span className={style.icon2}><RxCrossCircled/></span>
         </div>  
           <Popover className={style.pop}
             {...bindPopover(popupState)}
